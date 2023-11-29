@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <header>
-      <h1 className="text-3xl md:text-4xl  font-extrabold text-center mt-10">
+      <h1 className="text-3xl md:text-4xl  font-extrabold text-center mt-5">
         Seguimiento Pacientes{" "}
         <span className="text-indigo-700">Veterinaria</span>
       </h1>

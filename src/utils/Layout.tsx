@@ -1,10 +1,7 @@
-import React, { ReactNode } from "react";
+import React from "react";
+import { AppChildren } from "../Logic/types";
 
-type LayoutProps = {
-  children: ReactNode;
-};
-
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<AppChildren> = ({ children }) => {
   return <>{children}</>;
 };
 
