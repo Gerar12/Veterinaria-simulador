@@ -104,7 +104,7 @@ const Form: React.FC<AppChildren> = ({ children }) => {
             {/* Separacion */}
             <div className="mt-2">
               <label htmlFor="alta" className="font-bold">
-                Alta
+                Fecha de alta
               </label>
 
               <input
