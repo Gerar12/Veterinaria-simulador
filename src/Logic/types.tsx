@@ -24,8 +24,11 @@ export interface Pet {
 // Actualiza el AppContextType para incluir una lista de Pet y una función para actualizar esa lista
 export type AppContextType = {
   pets: Pet[];
-  handleForm: (data: FieldValues) => void; // o cualquier tipo de retorno que esperes
+  handleForm: (data: FieldValues) => void;
   register: UseFormRegister<FieldValues>;
   handleSubmit: UseFormHandleSubmit<FieldValues>;
   errors: FieldErrors<FieldValues>;
+  handleDelete: (data: Pet) => void;
+  handleUpdate: (data: Pet) => void;
+  update: boolean;
 };

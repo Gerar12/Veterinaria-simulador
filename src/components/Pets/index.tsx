@@ -8,7 +8,7 @@ const Pets = () => {
     throw new Error("useContext(AppContext) returned undefined!");
   }
 
-  const { pets } = context;
+  const { pets, handleDelete, handleUpdate, update } = context;
 
   return (
     <>
@@ -21,7 +21,7 @@ const Pets = () => {
             {pets.map((pet) => (
               <div
                 key={pet.id}
-                className="bg-white shadow-lg rounded-lg mt-5 p-6 border border-gray-200"
+                className="bg-white shadow-xl rounded-lg mt-5 p-6 border border-gray-200"
               >
                 <p className="text-sm text-gray-500">Nombre</p>
                 <p className="text-xl text-gray-900 mb-4">{pet.name}</p>
@@ -37,6 +37,27 @@ const Pets = () => {
 
                 <p className="text-sm text-gray-500">Síntomas</p>
                 <p className="text-xl text-gray-900 mb-4">{pet.sintomas}</p>
+                <div className="flex justify-between">
+                  <button
+                    className={`transition duration-300 bg-red-500 text-white px-3 py-2 rounded-lg shadow-md hover:bg-red-700 ${
+                      update ? "opacity-50" : "opacity-100"
+                    }`}
+                    disabled={update ? true : false}
+                    onClick={() => {
+                      handleDelete(pet);
+                    }}
+                  >
+                    Borrar
+                  </button>
+                  <button
+                    className="transition duration-300 bg-indigo-500 text-white px-3 py-2 rounded-lg shadow-md hover:bg-indigo-700"
+                    onClick={() => {
+                      handleUpdate(pet);
+                    }}
+                  >
+                    Modificar
+                  </button>
+                </div>
               </div>
             ))}
           </div>

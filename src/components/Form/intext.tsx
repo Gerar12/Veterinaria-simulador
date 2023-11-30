@@ -13,7 +13,7 @@ const Form: React.FC<AppChildren> = ({ children }) => {
     throw new Error("useContext(AppContext) returned undefined!");
   }
 
-  const { handleForm, register, handleSubmit, errors } = context;
+  const { handleForm, register, handleSubmit, errors, update } = context;
 
   return (
     <>
@@ -46,6 +46,8 @@ const Form: React.FC<AppChildren> = ({ children }) => {
                   className="p-2 w-full focus:outline-none "
                   {...register("name", {
                     required: true,
+                    minLength: 3,
+                    maxLength: 20,
                   })}
                 />
 
@@ -70,6 +72,8 @@ const Form: React.FC<AppChildren> = ({ children }) => {
                   className="p-2 w-full focus:outline-none"
                   {...register("propetario", {
                     required: true,
+                    minLength: 3,
+                    maxLength: 25,
                   })}
                 />
                 <PiUserListFill className="w-5 h-5 mr-2 text-gray-500" />
@@ -88,7 +92,7 @@ const Form: React.FC<AppChildren> = ({ children }) => {
               <div className="flex border items-center mt-2 ">
                 <input
                   id="email"
-                  type="text"
+                  type="email"
                   placeholder="Correo electronico"
                   className="p-2 w-full focus:outline-none"
                   {...register("email", {
@@ -143,9 +147,13 @@ const Form: React.FC<AppChildren> = ({ children }) => {
             </div>
             <button
               type="submit"
-              className="transition duration-300 bg-indigo-600 w-full mt-5 p-2 text-gray-200 font-semibold rounded-md hover:text-white hover:bg-indigo-800 "
+              className={`transition duration-300 w-full mt-5 p-2 text-gray-200 font-semibold rounded-md hover:text-white ${
+                update
+                  ? "bg-yellow-600 hover:bg-yellow-800"
+                  : "bg-indigo-600 hover:bg-indigo-800"
+              }`}
             >
-              Agregar Paciente
+              {update ? "Actualizar Paciente" : "Agregar Paciente"}
             </button>
           </form>
         </section>
